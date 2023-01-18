@@ -4,7 +4,8 @@
   "description": "create panel admin for restApi jobSeeker ",
   "main": "admin.js",
   "scripts": {
-    "start": "nodemon index"
+    "start": "node admin.js",
+    "dev": "nodemon admin.js"
   },
   "repository": {
     "type": "git",
