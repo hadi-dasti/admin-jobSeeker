@@ -7,6 +7,12 @@ require('dotenv').config()
 const app = express()
 const {PORT} = require('./config')
 
+// require postgres
+const postgresDB = require('./pgdb')
+
+postgresDB()
+
+
 
 //middleware
 app.use(express.json())
