@@ -4,18 +4,18 @@ const {POSTGRES,DB_HOST,PASSWORD} = require('./config')
 
 
 
-// connect to postgresSql
-
+//config sequelize for  database(postgresql)
 const sequelize = new Sequelize(POSTGRES, POSTGRES,PASSWORD,{
         host: DB_HOST,
         dialect:'postgres',
         logging: false
     })
 
+// connect and test sequelize
 async function connectDB(){
     try{
         await sequelize.authenticate()
-        console.log("✅ Connection has been established successfully.");
+        console.log("✅ Connection has been established successfully.".yellow);
     }catch(err){
         console.error("Unable to connect to the database:", err.name);
     }

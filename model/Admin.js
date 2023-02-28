@@ -1,4 +1,4 @@
-const { sequelize, DataTypes }= require('../DB');
+const { sequelize, DataTypes }= require('../config/dbSql');
 const bcrypt = require('bcryptjs')
 
 
@@ -23,9 +23,14 @@ const Admin = sequelize.define("admin", {
     },
     password:{
         type:DataTypes.STRING(100),
+        allowNull: false,
         validate: {
             notEmpty: true
         }
+    },
+    confirmPassword:{
+       type:DataTypes.VIRTUAL,
+        allowNull: true,
     },
     age: {
         type: DataTypes.INTEGER(),
@@ -33,22 +38,12 @@ const Admin = sequelize.define("admin", {
         isNumeric: true
     },
     role: {
-        type:DataTypes.TEXT,
-        args: [['ADMIN', 'EMPLOYEE']],
+        type:DataTypes.ENUM('MANAGER','EMPLOYEE'),
+        allowNull: false,
         msg: "Must be admin and employee"
     },
     published: {
         type: DataTypes.BOOLEAN,
-        allowNull: true,
-    },
-    createdAt: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW,
-        allowNull: true,
-    },
-    updatedAt: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW,
         allowNull: true,
     },
 },{
