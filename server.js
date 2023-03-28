@@ -61,7 +61,7 @@ app.listen(PORT,async ()=> {
         console.log("✅Synced database successfully...".red);
 
     }catch(err){
-        console.log(err.messageerror)
+        console.log(err.message)
     }
 })
 
