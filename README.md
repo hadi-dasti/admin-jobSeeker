@@ -1,5 +1,6 @@
+build panel admin for jobSeeker of my project with node.js 
+#node.js
 # admin-jobSeeker
-create panel admin for restApi jobSeeker with node.js
 #Express js
 #sequelize
 #postgresql
